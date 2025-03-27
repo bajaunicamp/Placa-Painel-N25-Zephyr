@@ -6,14 +6,25 @@
  */
 
 LOG_MODULE_REGISTER(can);
+const struct device *const can_dev = DEVICE_DT_GET(DT_ALIAS(mycan));
 
 struct can_frame botao_frame = {
     .flags = 0, .id = 0xb, .dlc = 8, .data = {1, 2, 3, 4, 5, 6, 7, 8}};
+int send_kill_switch(bool piloto, bool kill){
+  botao_frame.data[0] = piloto;
+  botao_frame.data[1] = kill;
+  int ret =  can_send(can_dev, &botao_frame, K_MSEC(100), NULL, NULL);
+
+  if (ret != 0) {
+    LOG_ERR("Enviar botao_frame falhou (%d)", ret);
+    return ret;
+  }
+  return 0;
+}
 
 struct can_frame velocimetro_frame = {
     .flags = 0, .id = 0xc, .dlc = 8, .data = {1, 2, 3, 4, 5, 6, 7, 8}};
 
-const struct device *const can_dev = DEVICE_DT_GET(DT_ALIAS(mycan));
 
 struct can_timing timing;
 

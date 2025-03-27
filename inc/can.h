@@ -12,3 +12,5 @@ int Init_CAN();
 
 // Essa função deve ser chamada em algum while loop
 int CAN_Tick();
+
+int send_kill_switch(bool piloto, bool kill);

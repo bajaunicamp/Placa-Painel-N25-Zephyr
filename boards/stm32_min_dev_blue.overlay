@@ -10,10 +10,19 @@
                 <&gpioa 7 GPIO_ACTIVE_HIGH>, // Não pode mudar
                 <&gpioa 6 GPIO_ACTIVE_HIGH>, // Não pode mudar
                 <&gpioa 5 GPIO_ACTIVE_HIGH>; // Não pode mudar
+
     };
+
+     buttons {
+             compatible = "gpio-keys";
+             kill: button_0 {
+                     gpios = < &gpioa 15 GPIO_ACTIVE_HIGH >;
+                     label = "Botão para o Kill Switch";
+             };
 
     aliases {
       mycan = &can1;
+      botaokill = &kill
     };
 };
 

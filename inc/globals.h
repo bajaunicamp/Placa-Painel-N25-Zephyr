@@ -1,27 +1,28 @@
 #ifndef GLOBALS_H
+#define GLOBALS_H
 
 // Porcentagem Bateria
-float bateria = 20;
+extern float bateria;
 
 // Porcentagem Combustível
-float combustivel = 40;
+extern float combustivel;
 
 // Porcentagem Pneu Dianteiro Direito
-float pneu_dd = 50;
+extern float pneu_dd;
 
 // Porcentagem Pneu Dianteiro Esquerdo
-float pneu_de = 100;
+extern float pneu_de;
 
 // Porcentagem Pneu Traseiro Direito
-float pneu_td = 50;
+extern float pneu_td;
 
 // Porcentagem Pneu Traseiro Esquerdo
-float pneu_te = 100;
+extern float pneu_te;
 
 // Porcentagem sinal
-float sinal = 70;
+extern float sinal;
 
 // Velocidade em m/s
-int velocidade = 10;
+extern int velocidade;
 
 #endif // !GLOBALS_H
